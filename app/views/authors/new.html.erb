@@ -10,19 +10,19 @@
   </div>
 <% end %>
 <%= form_tag authors_path, method: "post" do %>
-  <div class="field">
+  <div class="field<%=@author.errors[:name].any? ? ' field_with_errors' : ''%>">
     <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name", @author.name, class: (@author.errors[:phone_number].any? ? 'field_with_errors' : '') %>
+    <%= text_field_tag "name", @author.name %>
   </div>
 
-  <div class="field">
+  <div class="field<%=@author.errors[:email].any? ? ' field_with_errors' : ''%>">
     <%= label_tag "email", "Email" %>
-    <%= text_field_tag "email", @author.email, class: (@author.errors[:email].any? ? 'field_with_errors' : '') %>
+    <%= text_field_tag "email", @author.email %>
   </div>
 
-  <div class="field">
+  <div class="field<%=@author.errors[:phone_number].any? ? ' field_with_errors' : ''%>">
     <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number", @author.phone_number, class: (@author.errors[:phone_number].any? ? 'field_with_errors' : '') %>
+    <%= text_field_tag "phone_number", @author.phone_number %>
   </div>
 
   <%= submit_tag "Create" %>

@@ -5,6 +5,7 @@ RSpec.describe "authors/new", type: :feature do
     it "does not render an error list" do
       expect(page).not_to have_selector("#error_explanation")
     end
+
     it "does not render error fields" do
       expect(page).not_to have_selector(".field_with_errors")
     end
@@ -39,9 +40,9 @@ RSpec.describe "authors/new", type: :feature do
     end
 
     it "has error class on bad fields" do
-      expect(page).to have_css("input[name=name].field_with_errors")
-      expect(page).to have_css("input[name=email].field_with_errors")
-      expect(page).to have_css("input[name=phone_number].field_with_errors")
+      expect(page).to have_css(".field_with_errors input[name=name]")
+      expect(page).to have_css(".field_with_errors input[name=email]")
+      expect(page).to have_css(".field_with_errors input[name=phone_number]")
     end
   end
 end
